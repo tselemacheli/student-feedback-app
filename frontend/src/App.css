@@ -1,10 +1,20 @@
+/* 🌈 Global Variables */
+:root {
+  --primary: #2b6cb0;
+  --accent: #4a90e2;
+  --secondary: #f0f4ff;
+  --card-bg: #ffffff;
+  --border-radius: 16px;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
 /* 🌟 General Card Styling */
 .card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   padding: 16px 20px;
   box-shadow: var(--shadow);
-  transition: none; /* 🚫 removed hover transitions */
+  transition: none; /* 🚫 no hover animations for simplicity */
 }
 
 /* 🧱 Dashboard Layout */
@@ -32,7 +42,7 @@
 
 /* 🏷️ Title */
 .dashboard-content h2 {
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   font-weight: 800;
   color: var(--accent);
   margin-bottom: 12px;
@@ -44,7 +54,7 @@
   line-height: 1.9;
   color: #333;
   font-size: 1.25rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   padding: 40px 45px;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
@@ -53,37 +63,36 @@
   text-align: left;
 }
 
-/* 📊 Stats Section (SIDE BY SIDE) */
+/* 📊 Stats Section (Side by Side Layout) */
 .dashboard-stats {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 70px;
-  flex-wrap: nowrap;
+  gap: 60px;
+  flex-wrap: wrap; /* ✅ changed to wrap for better mobile behavior */
   width: 100%;
   margin-top: 25px;
 }
 
-/* 🧮 Stat Cards — Static, No Hover */
+/* 🧮 Stat Cards */
 .stat-card {
   background: var(--card-bg);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
   border-radius: 16px;
-  padding: 65px 85px;
-  width: 400px;
-  height: 250px;
+  padding: 55px 65px;
+  width: 360px;
+  height: 230px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: none; /* 🚫 no hover animation */
+  transition: none;
 }
 
-/* 🔢 Card Text */
 .stat-card h3 {
   margin: 0;
-  font-size: 4.2rem;
+  font-size: 4rem;
   color: var(--primary);
   font-weight: 800;
   line-height: 1.1;
@@ -93,9 +102,62 @@
   margin-top: 18px;
   color: var(--accent);
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
+}
+
+/* 💬 Feedback Section (SIDE-BY-SIDE CARDS) */
+.feedback-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.feedback-card {
+  background: var(--card-bg);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.2s ease;
+}
+
+.feedback-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.feedback-card em {
+  font-style: italic;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.feedback-card .rating {
+  margin-top: 8px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.feedback-card .comments {
+  margin-top: 10px;
+  color: #444;
+  line-height: 1.5;
 }
 
 /* 🎨 Buttons */
@@ -103,25 +165,25 @@ button {
   background: var(--primary);
   color: #fff;
   border: none;
-  padding: 16px 32px;
-  border-radius: 12px;
+  padding: 12px 20px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.4px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 button:hover {
   background: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
 button:active {
   transform: scale(0.97);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* 📱 Responsive Design */
@@ -159,5 +221,15 @@ button:active {
 
   .stat-card p {
     font-size: 1.1rem;
+  }
+
+  .feedback-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feedback-card {
+    width: 100%;
+    max-width: 420px;
   }
 }
